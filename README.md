@@ -1,6 +1,10 @@
-## UI Proof of Value
+ ## UI Proof of Value
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Storybook
+
+`npm run storybook`
 
 ## Available Scripts
 
