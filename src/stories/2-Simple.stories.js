@@ -1,6 +1,8 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { Button } from '@storybook/react/demo';
+import { GeoPositionField } from '../components/GeoPositionField';
+import Form from "@rjsf/core";
 
 export default {
   title: 'Simple Field',
@@ -17,45 +19,7 @@ export default {
 //   </Button>
 // );
 
-import Form from "@rjsf/core";
-
-// const schema = {
-//   title: "Todo",
-//   type: "object",
-//   required: ["title"],
-//   properties: {
-//     title: {type: "string", title: "Title", default: "A new task"},
-//     done: {type: "boolean", title: "Done?", default: false}
-//   }
-// };
-
 const log = (type) => console.log.bind(console, type);
-
-// Define a custom component for handling the root position object
-class GeoPosition extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {...props.formData};
-  }
-
-  onChange(name) {
-    return (event) => {
-      this.setState({
-        [name]: parseFloat(event.target.value)
-      }, () => this.props.onChange(this.state));
-    };
-  }
-
-  render() {
-    const {lat, lon} = this.state;
-    return (
-      <div>
-        <input type="number" value={lat} onChange={this.onChange("lat")} />
-        <input type="number" value={lon} onChange={this.onChange("lon")} />
-      </div>
-    );
-  }
-}
 
 const schema = {
   title: "Todo",
@@ -69,16 +33,6 @@ const schema = {
   }
 };
 
-// const schema = {
-//   title: "Todo",
-//   type: "object",
-//   required: ["title"],
-//   properties: {
-//     title: {type: "string", title: "Title", default: "A new task"},
-//     done: {type: "boolean", title: "Done?", default: false}
-//   }
-// };
-
 // Define the custom field component to use for the root object
 const uiSchema = {
   description: {
@@ -88,7 +42,7 @@ const uiSchema = {
 
 // Define the custom field components to register; here our "geo"
 // custom field component
-const fields = {geo: GeoPosition};
+const fields = {geo: GeoPositionField};
 
 export const Test = () => {
   return (
