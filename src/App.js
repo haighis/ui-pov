@@ -3,7 +3,8 @@ import './App.css';
 
 import React, { Component } from "react";
 import { render } from "react-dom";
-import { GeoPositionField } from "./components/GeoPositionField";
+import GeoPositionField from "./components/GeoPositionField";
+import DataTableField from './components/DataTableField/';
 
 import Form from "@rjsf/core";
 
@@ -38,7 +39,7 @@ const uiSchema = {
   }
 };
 
-const fields = {geo: GeoPositionField};
+const fields = {geo: GeoPositionField, dataTable: DataTableField};
 
 // Define the custom field components to register; here our "geo"
 // custom field component

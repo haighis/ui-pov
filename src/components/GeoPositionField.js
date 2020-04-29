@@ -1,7 +1,7 @@
 import React from "react";
 
 // Define a custom component for handling the root position object
-class GeoPositionField extends React.Component {
+export class GeoPositionField extends React.Component {
     constructor(props) {
       super(props);
       this.state = {...props.formData};
