@@ -14,7 +14,9 @@ class DataTableField extends React.Component {
         }, () => this.props.onChange(this.state));
       };
     }
-  
+
+    //log('in datatablefield ', props);
+
     render() {
       const {title} = this.state;
       return (
