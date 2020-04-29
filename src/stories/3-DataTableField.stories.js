@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Button } from '@storybook/react/demo';
 import DataTableField from '../components/DataTableField/';
 import Form from '@rjsf/core';
@@ -15,12 +15,7 @@ const schemaEdit = {
   type: 'object',
   // required: ["lat", "lon", "title"],
   properties: {
-    DataTableEditor: {
-      mode: 'edit',
-      schema: {
-        type: 'object',
-        properties: {
-          title: { type: 'string' },
+    title: { type: 'string' },
           columns: {
             type: 'array',
             title: 'Fields',
@@ -32,9 +27,14 @@ const schemaEdit = {
               },
             },
           },
-        }
-      }
-    }
+    // DataTableEditor: {
+    //   mode: 'edit',
+    //   schema: {
+    //     type: 'object',
+    //     properties: {
+    //     }
+    //   }
+    // }
   },
 };
 
@@ -56,6 +56,13 @@ const uiSchema = {
 
 const fields = {DataTable: DataTableField}
 
+// //getter and setter for formData
+// const [formData, setFormData] = useState({});
+// //function to monitor changes in formData
+// useEffect(() => {
+//   log(formData);
+// }, [formData]);
+
 export const EditMode = () => {
   return (
     <div className="App">
@@ -63,6 +70,7 @@ export const EditMode = () => {
         <Form
           schema={schemaEdit}
           uiSchema={uiSchema}
+          // formData={formData}
           fields={fields}
           onChange={log('changed')}
           onSubmit={log('submitted')}
@@ -73,6 +81,14 @@ export const EditMode = () => {
   );
 };
 
+const formData = {
+  title: 'Customer',
+  columns: [
+    {FieldName: "Col1", DataType: "String"},
+    {FieldName: "Col2", DataType: "String"}
+  ]
+}
+
 export const ViewMode = () => {
   return (
     <div className="App">
@@ -80,6 +96,7 @@ export const ViewMode = () => {
         <Form
           schema={schemaView}
           uiSchema={uiSchema}
+          formData={formData}
           fields={fields}
           onChange={log('changed')}
           onSubmit={log('submitted')}
