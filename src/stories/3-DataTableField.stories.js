@@ -81,15 +81,16 @@ export const EditMode = () => {
   );
 };
 
-const formData = {
-  title: 'Customer',
-  columns: [
-    {FieldName: "Col1", DataType: "String"},
-    {FieldName: "Col2", DataType: "String"}
-  ]
-}
-
 export const ViewMode = () => {
+  const formData = {
+    DataTableEditor: {
+      title: 'Customer',
+      columns: [
+        {field: "Col1", DataType: "String"},
+        {field: "Col2", DataType: "String"}
+      ]
+    }
+  }
   return (
     <div className="App">
       <header className="App-header">
