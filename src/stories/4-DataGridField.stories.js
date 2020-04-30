@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Button } from '@storybook/react/demo';
-import DataTableField from '../components/DataTableField/';
+import DataGridField from '../components/DataGridField';
 import Form from '@rjsf/core';
 
 export default {
@@ -11,7 +11,7 @@ export default {
 const log = type => console.log.bind(console, type);
 
 const schema = {
-  title: 'DataTableField',
+  title: 'AG Grid',
   type: 'object',
   properties: {
     DataTableEditor: {
@@ -22,7 +22,7 @@ const schema = {
 
 const uiSchema = {
   DataTableEditor: {
-    "ui:field": "DataTable"
+    "ui:field": "DataGrid"
   },
 }
 
@@ -83,7 +83,7 @@ const formData = {
   }
 }
 
-const fields = {DataTable: DataTableField}
+const fields = {DataGrid: DataGridField}
 
 export const AGGrid = () => {
   return (
