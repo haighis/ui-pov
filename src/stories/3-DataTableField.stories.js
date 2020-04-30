@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@storybook/react/demo';
 import DataTableField from '../components/DataTableField/';
 import Form from '@rjsf/core';
@@ -15,18 +15,20 @@ const schemaEdit = {
   type: 'object',
   // required: ["lat", "lon", "title"],
   properties: {
-    title: { type: 'string' },
-          columns: {
-            type: 'array',
-            title: 'Fields',
-            items: {
-              type: 'object',
-              properties: {
-                FieldName: { title: "Field Name", type: 'string', default: 'Col1' },
-                DataType: { title: "Data Type", type: 'string', default: 'String' },
-              },
-            },
+    //dataTable: {
+      title: { type: 'string' },
+      columns: {
+        type: 'array',
+        title: 'Fields',
+        items: {
+          type: 'object',
+          properties: {
+            FieldName: { title: 'Field Name', type: 'string', default: 'Col1' },
+            DataType: { title: 'Data Type', type: 'string', default: 'String' },
           },
+        },
+      },
+    //},
     // DataTableEditor: {
     //   mode: 'edit',
     //   schema: {
@@ -42,19 +44,19 @@ const schemaView = {
   title: 'DataTableField',
   type: 'object',
   properties: {
-    DataTableEditor: {
-      mode: 'view'
-    }
+    dataTable: {
+      mode: 'view',
+    },
   },
 };
 
 const uiSchema = {
-  DataTableEditor: {
-    "ui:field": "DataTable"
+  dataTable: {
+    'ui:field': 'DataTable',
   },
-}
+};
 
-const fields = {DataTable: DataTableField}
+const fields = { DataTable: DataTableField };
 
 // //getter and setter for formData
 // const [formData, setFormData] = useState({});
@@ -86,11 +88,11 @@ export const ViewMode = () => {
     DataTableEditor: {
       title: 'Customer',
       columns: [
-        {field: "Col1", DataType: "String"},
-        {field: "Col2", DataType: "String"}
-      ]
-    }
-  }
+        { field: 'Col1', DataType: 'String' },
+        { field: 'Col2', DataType: 'String' },
+      ],
+    },
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -106,4 +108,4 @@ export const ViewMode = () => {
       </header>
     </div>
   );
-}
+};

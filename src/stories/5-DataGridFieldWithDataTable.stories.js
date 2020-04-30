@@ -4,7 +4,7 @@ import DataGridField from '../components/DataGridField';
 import Form from '@rjsf/core';
 
 export default {
-  title: 'Data Grid Field',
+  title: 'Data Grid Field with DataTable',
   component: Button,
 };
 
@@ -14,9 +14,21 @@ const schema = {
   title: 'AG Grid',
   type: 'object',
   properties: {
+    title: { type: 'string' },
+      columns: {
+        type: 'array',
+        title: 'Fields',
+        items: {
+          type: 'object',
+          properties: {
+            FieldName: { title: 'Field Name', type: 'string', default: 'Col1' },
+            DataType: { title: 'Data Type', type: 'string', default: 'String' },
+          },
+        },
+      },
     aggrid: {
       mode: 'view'
-    }
+    },
   },
 };
 
@@ -27,7 +39,13 @@ const uiSchema = {
 }
 
 const formData = {
-  
+  title: "JohnTable",
+  columns: [
+    { FieldName: "Col1", DataType: "String" },
+    { FieldName: "Col2", DataType: "String" },
+    { FieldName: "Col3", DataType: "String" },
+    { FieldName: "Col4", DataType: "String" },
+  ],
   aggrid: {
     title: 'Customer',
     columns: [
