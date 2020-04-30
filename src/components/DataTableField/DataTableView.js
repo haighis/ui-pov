@@ -5,12 +5,22 @@ import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 
 const DataTableView = (props) => {
     let {formData} = props;
+    console.log('props ', props)
+
+    //console.log('typeof props.formData.columns ', typeof props.formData.columns, props.formData.columns[0] )    
+
     return (
         <div className="ag-theme-balham" style={ {height: '500px', width: '100%'} }>
-            <AgGridReact
+            DataTable Name: {props.formData.title}
+            {props.formData.columns.map((name) => (
+                <li>
+                {name.field} - {name.DataType} - Js Type {typeof name.field}
+                </li>
+            ))}
+            {/* <AgGridReact
                 columnDefs={formData.columns}
                 rowData={formData.data}
-            />
+            /> */}
         </div>
     );
 
