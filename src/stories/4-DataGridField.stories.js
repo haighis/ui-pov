@@ -15,7 +15,13 @@ const schema = {
   type: 'object',
   properties: {
     aggrid: {
-      mode: 'view'
+      columns: [
+        {field: "id"},
+        {field: "email"},
+        {field: "first_name"},
+        {field: "last_name"},
+        {field: "avatar"},
+      ],
     }
   },
 };
@@ -27,16 +33,8 @@ const uiSchema = {
 }
 
 const formData = {
-  
   aggrid: {
     title: 'Customer',
-    columns: [
-      {field: "id"},
-      {field: "email"},
-      {field: "first_name"},
-      {field: "last_name"},
-      {field: "avatar"},
-    ],
     data: [
       {
           "id": 7,

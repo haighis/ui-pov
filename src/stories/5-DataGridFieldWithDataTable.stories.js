@@ -10,7 +10,7 @@ export default {
 
 const log = type => console.log.bind(console, type);
 
-const schema = {
+let schema = {
   title: 'AG Grid',
   type: 'object',
   properties: {
@@ -27,7 +27,10 @@ const schema = {
         },
       },
     aggrid: {
-      mode: 'view'
+      columns: {
+        '$ref': '#/properties/aggrid/data',
+      },
+      data: [],
     },
   },
 };
@@ -48,13 +51,6 @@ const formData = {
   ],
   aggrid: {
     title: 'Customer',
-    columns: [
-      {field: "id"},
-      {field: "email"},
-      {field: "first_name"},
-      {field: "last_name"},
-      {field: "avatar"},
-    ],
     data: [
       {
           "id": 7,
@@ -102,7 +98,14 @@ const formData = {
   }
 }
 
-const fields = {DataGrid: DataGridField}
+const fields = {DataGrid: DataGridField};
+
+// const [columns, setColumns] = useState([]);
+
+const onSubmit = (props) => {
+  schema.properties.aggrid.data = props.formData.columns;
+  console.log(schema);
+}
 
 export const AGGrid = () => {
   return (
@@ -114,7 +117,7 @@ export const AGGrid = () => {
           formData={formData}
           fields={fields}
           onChange={log('changed')}
-          onSubmit={log('submitted')}
+          onSubmit={onSubmit}
           onError={log('errors')}
         />
       </header>
