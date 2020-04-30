@@ -9,7 +9,7 @@ const DataTableView = (props) => {
         <div className="ag-theme-balham" style={ {height: '500px', width: '100%'} }>
             <AgGridReact
                 columnDefs={formData.columns}
-                rowData={[]}
+                rowData={formData.data}
             />
         </div>
     );
