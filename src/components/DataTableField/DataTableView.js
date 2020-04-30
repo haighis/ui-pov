@@ -19,7 +19,7 @@ const DataTableView = (props) => {
             ))}
             {/* <AgGridReact
                 columnDefs={formData.columns}
-                rowData={[]}
+                rowData={formData.data}
             /> */}
         </div>
     );
